@@ -1,7 +1,8 @@
-function Listing(){
-    return(
-        <h1>Listagem</h1>
-    )
+function Listing() {
+  
+  return (
+    <h1>Listagem</h1>
+  );
 }
 
-export default Listing
+export default Listing;
