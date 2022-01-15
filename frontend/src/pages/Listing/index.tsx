@@ -17,16 +17,16 @@ function Listing() {
     number: 0,
     first: true,
     numberOfElements: 0,
-    empty: true
+    empty: true,
   });
 
-
-
   useEffect(() => {
-    axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=id`).then((response) => {
-      const data = response.data as MoviePage; //type que foi criado para receber o corpo da requisicao
-      setPage(data)
-    });
+    axios
+      .get(`${BASE_URL}/movies?size=12&page=${pageNumber}`)
+      .then((response) => {
+        const data = response.data as MoviePage; //type que foi criado para receber o corpo da requisicao
+        setPage(data);
+      });
   }, [pageNumber]);
 
   return (
@@ -35,12 +35,11 @@ function Listing() {
 
       <div className="container">
         <div className="row">
-          {page.content.map(movie => (
-              <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-              <MovieCard movie = {movie} />
+          {page.content.map((movie) => (
+            <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+              <MovieCard movie={movie} />
             </div>
-          )
-          )}
+          ))}
         </div>
       </div>
     </>
